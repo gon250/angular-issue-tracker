@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+        <div class="box">
+            <h2>I'm happy to hear from you 💬</h2>
+            <ul>
+                <li *ngFor="let contact of contactItems">
+                    <a [href]="contact.url" target="_blank">{{contact.name}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
