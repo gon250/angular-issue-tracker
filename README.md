@@ -1,6 +1,25 @@
 # AngularIssuesTracker
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.2.
+## Summary
+
+* Using lazy loading for loading all modules and setting loading strategy
+* Routes:
+  * '/'           Main route to displaying all issues
+  * '/issues/:id' View a single issue
+  * '/contact'    Just an extra view for the routing demostration
+* Layout creation
+* Handle possible error
+  * Not found routes
+  * Fetch issues
+* Service creation
+  * getAllIssues - (support pagination)
+  * getIssue     - (by id number)
+* Tests
+  * Testing issue Service
+* Extra
+  * Angular Material
+  * Flexboxgrid
+
 
 ## Development server
 

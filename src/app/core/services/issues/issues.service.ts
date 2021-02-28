@@ -13,20 +13,23 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class IssuesService {
+  private readonly retryAttemps: number = 2;
+  private readonly itemsPerPage: string = '15';
+
   constructor(private http: HttpClient) {}
 
   getAllIssues(page: string): Observable<Issue[]> {
     return this.http
       .get<Issue[]>(environment.url_api, {
-        params: { per_page: '15', page: page },
+        params: { per_page: this.itemsPerPage, page: page },
       })
-      .pipe(retry(2), catchError(this.handleError));
+      .pipe(retry(this.retryAttemps), catchError(this.handleError));
   }
 
   getIssue(issueNumber: string): Observable<Issue> {
     return this.http
       .get<Issue>(`${environment.url_api}/${issueNumber}`)
-      .pipe(retry(2), catchError(this.handleError));
+      .pipe(retry(this.retryAttemps), catchError(this.handleError));
   }
 
   private handleError(error: HttpErrorResponse) {
